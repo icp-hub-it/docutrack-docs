@@ -4,7 +4,7 @@
   "name": "Docutrack",
   "colors": {
     "primary": "#FE4F32",
-    "light": "#07C983",
+    "light": "#FE4F32",
     "dark": "#FE4F32"
   },
   "favicon": "/favicon.svg",
