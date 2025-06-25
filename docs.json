@@ -16,20 +16,71 @@
           {
             "group": "Get Started",
             "pages": [
-              "index",
+              "introduction",
               "quickstart",
-              "development"
+              "authentication"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Project Overview",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "overview/project-description",
+              "overview/objectives",
+              "overview/architecture",
+              "overview/roadmap"
+            ]
+          },
+          {
+            "group": "User Research & Design",
+            "pages": [
+              "design/personas",
+              "design/user-journeys",
+              "design/wireframes",
+              "design/prototype"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/document-upload",
+              "features/document-sharing",
+              "features/user-registration",
+              "features/access-control"
+            ]
+          },
+          {
+            "group": "Technical Implementation",
+            "pages": [
+              "technical/canister-architecture",
+              "technical/data-structures",
+              "technical/deployment",
+              "technical/security"
+            ]
+          },
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/documents",
+              "api-reference/users",
+              "api-reference/sharing"
+            ]
+          },
+          {
+            "group": "SDK",
+            "pages": [
+              "sdk/javascript",
+              "sdk/python",
+              "sdk/examples"
+            ]
+          },
+          {
+            "group": "Deployment & Testing",
+            "pages": [
+              "deployment/local-setup",
+              "deployment/production",
+              "deployment/testing"
             ]
           }
         ]
@@ -45,7 +96,7 @@
           },
           {
             "group": "Endpoint Examples",
-            "items": [
+            "pages": [
               "api-reference/index.mdx",
               "api-reference/register-user.mdx",
               "api-reference/upload-file.mdx",
