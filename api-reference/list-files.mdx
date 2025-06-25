@@ -1,0 +1,20 @@
+
+---
+title: List Files
+description: Lists all files owned by the user.
+---
+
+# `list_files`
+
+Lists all files owned by the current user.
+
+## Signature
+
+```candid
+list_files : () -> async Result
+```
+
+## Returns
+
+- `Ok([FileMetadata])` – List of file metadata.
+- `Err(Error)` – Retrieval failed.

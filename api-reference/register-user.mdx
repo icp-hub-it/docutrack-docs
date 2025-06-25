@@ -1,0 +1,20 @@
+
+---
+title: Register User
+description: Registers a new user on DocuTrack.
+---
+
+# `register_user`
+
+Registers a new user by creating their personal canister.
+
+## Signature
+
+```candid
+register_user : () -> async Result
+```
+
+## Returns
+
+- `Ok(Principal)` – The principal of the new user canister.
+- `Err(Error)` – Registration failed.

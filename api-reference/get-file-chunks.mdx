@@ -1,0 +1,24 @@
+
+---
+title: Get File Chunks
+description: Retrieves all chunks for a given file.
+---
+
+# `get_file_chunks`
+
+Retrieves all file chunks for a file.
+
+## Signature
+
+```candid
+get_file_chunks : (file_id: Text) -> async Result
+```
+
+## Parameters
+
+- `file_id`: Text – The identifier of the file.
+
+## Returns
+
+- `Ok([Blob])` – Chunks of the file.
+- `Err(Error)` – Retrieval failed.

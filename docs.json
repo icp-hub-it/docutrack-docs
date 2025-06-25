@@ -46,10 +46,15 @@
           {
             "group": "Endpoint Examples",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/index.mdx",
+              "api-reference/register-user.mdx",
+              "api-reference/upload-file.mdx",
+              "api-reference/delete-file.mdx",
+              "api-reference/list-files.mdx",
+              "api-reference/get-file-metadata.mdx",
+              "api-reference/get-file-chunks.mdx",
+              "api-reference/share-file.mdx",
+              "api-reference/types.mdx"
             ]
           }
         ]

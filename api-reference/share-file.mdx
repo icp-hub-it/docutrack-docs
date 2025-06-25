@@ -1,0 +1,27 @@
+
+---
+title: Share File
+description: Shares a document with another user.
+---
+
+# `share_file`
+
+Shares a file with another user.
+
+## Signature
+
+```candid
+share_file : (share_request: ShareRequest) -> async Result
+```
+
+## Parameters
+
+- `share_request`: object with:
+  - `file_id: Text`
+  - `recipient_principal: Principal`
+  - `permissions: [Permission]`
+
+## Returns
+
+- `Ok()` – File successfully shared.
+- `Err(Error)` – Sharing failed.
