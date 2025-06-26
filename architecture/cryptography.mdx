@@ -13,16 +13,24 @@ The dapp uses different kinds of keys [(link to source code)](https://github.com
 
 For each user and for each document separate keys are being used.
 
+<Frame>
 ![cryptography keys](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys.png)
+</Frame>
 
 In order for Alice to share Document 2 with Bob (who needs to have an II to support this functionality), the secret key of Document 2 needs to be encrypted for Bob’s public key.
 
+<Frame>
 ![cryptography keys sharing](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing.png)
+</Frame>
 
 This key is then added to the **User Canister**.
 
+<Frame>
 ![cryptography keys sharing in user canister](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing-in-user-canister.png)
+</Frame>
 
 Bob’s frontend can now download the document together with the document key encrypted for Bob and decrypt it locally.
 
+<Frame>
 ![cryptography keys sharing in user canister](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing-in-user-canister2.png)
+</Frame>

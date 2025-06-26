@@ -6,13 +6,19 @@ When a document is to be uploaded, a symmetric secret key for the document is cr
 
 In the example above, this user is called Bob. The document is encrypted with this secret key.
 
+<Frame>
 ![file upload first step diagram](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/upload_step1.png)
+</Frame>
 
 As a next step, the frontend obtains the public key of the registered user who created the request link, Alice, from the backend.
 The document’s secret key is encrypted for Alice.
 
+<Frame>
 ![file upload second step diagram](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/upload_step2.png)
+</Frame>
 
 Both the encrypted document and the encrypted secret key are sent to the backend where they are stored.
 
+<Frame>
 ![file upload third step diagram](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/upload_step3.png)
+</Frame>
