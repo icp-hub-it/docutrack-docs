@@ -1,0 +1,18 @@
+---
+title: 'Revoke Access to a Document'
+description: 'Inter-Canister Flows'
+---
+## Revoke access to a document
+
+```mermaid
+sequenceDiagram
+    actor A as Alice
+    participant O as Orchestrator
+    participant UC as Alice's User Canister
+    A->>UC: revoke_share (id, Bob)
+    UC->>O: Remove shared file from index
+    O->>UC: OK
+    UC->>UC: Revoke shared status
+    UC->>A: OK
+
+```

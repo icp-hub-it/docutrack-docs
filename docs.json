@@ -27,46 +27,54 @@
             ]
           },
           {
-            "group": "Design",
+            "group": "Architecture",
+            "pages": [
+              "architecture/introduction",
+              "architecture/user-registration",
+              "architecture/document-upload",
+              "architecture/document-access",
+              "architecture/cryptography"
+            ]
+          },
+          {
+            "group": "Flows",
+            "pages": [
+              "flows/introduction",
+              "flows/create-canister",
+              "flows/upload-document",
+              "flows/share-document",
+              "flows/download-document",
+              "flows/revoke-access-document",
+              "flows/delete-document",
+              "flows/request-document-upload"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Design",
+        "groups": [
+          {
+            "group": "UX/UI",
             "pages": [
               "design/introduction",
-              "design/user-journey",
               "design/personas",
+              "design/user-journey",
               "design/prototype"
             ]
           }
         ]
       },
       {
-        "tab": "Docs",
+        "tab": "Getting Started",
         "groups": [
           {
             "group": "Getting Started",
             "pages": [
-              "getting-started/prerequisites",
-              "getting-started/local-setup",
-              "getting-started/production-deployment",
-              "getting-started/deployed-canisters"
-            ]
-          },
-          {
-            "group": "Architecture",
-            "pages": [
-              "architecture/introduction",
-              "architecture/high-level-diagram",
-              "architecture/components",
-              "architecture/data-model",
-              "architecture/interaction-logic"
-            ]
-          },
-          {
-            "group": "Codebase",
-            "pages": [
-              "codebase/index",
-              "codebase/repo-structure",
-              "codebase/deployment-scripts",
-              "codebase/testing-qa",
-              "codebase/contributing"
+              "getting-started/introduction",
+              "getting-started/sign-up",
+              "getting-started/uploading-file",
+              "getting-started/sharing-file"
             ]
           }
         ]
@@ -77,52 +85,13 @@
           {
             "group": "Orchestrator Canister",
             "pages": [
-              "api/orchestrator/get_user",
-              "api/orchestrator/get_users",
-              "api/orchestrator/orbit_station",
-              "api/orchestrator/retry_user_canister_creation",
-              "api/orchestrator/revoke_share_file",
-              "api/orchestrator/revoke_share_file_for_users",
-              "api/orchestrator/set_user",
-              "api/orchestrator/share_file",
-              "api/orchestrator/share_file_with_users",
-              "api/orchestrator/shared_files",
-              "api/orchestrator/user_canister",
-              "api/orchestrator/username_exists",
-              "api/orchestrator/who_am_i"
+              "api/orchestrator"
             ]
           },
           {
             "group": "User Canister",
             "pages": [
-              "api/user/delete_file",
-              "api/user/download_file",
-              "api/user/get_alias_info",
-              "api/user/get_requests",
-              "api/user/get_shared_files",
-              "api/user/public_key",
-              "api/user/request_file",
-              "api/user/revoke_share",
-              "api/user/set_public_key",
-              "api/user/share_file",
-              "api/user/share_file_with_users",
-              "api/user/upload_file",
-              "api/user/upload_file_atomic",
-              "api/user/upload_file_continue"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Appendix",
-        "groups": [
-          {
-            "group": "Appendix",
-            "pages": [
-              "appendix/index",
-              "appendix/glossary",
-              "appendix/faq",
-              "appendix/resources"
+              "api/user"
             ]
           }
         ]
