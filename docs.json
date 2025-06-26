@@ -85,19 +85,19 @@
           {
             "group": "API Documentation",
             "pages": [
-              "api/introduction"
+              "api-documentation/introduction"
             ]
           },
           {
             "group": "Orchestrator Canister",
             "pages": [
-              "api/orchestrator"
+              "api-documentation/orchestrator"
             ]
           },
           {
             "group": "User Canister",
             "pages": [
-              "api/user"
+              "api-documentation/user"
             ]
           }
         ]
