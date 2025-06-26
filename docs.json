@@ -80,8 +80,14 @@
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "API Documentation",
         "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api/introduction"
+            ]
+          },
           {
             "group": "Orchestrator Canister",
             "pages": [
