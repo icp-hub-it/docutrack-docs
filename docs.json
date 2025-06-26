@@ -14,22 +14,52 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Overview",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "overview/index",
+              "overview/product-description",
+              "overview/project-goals",
+              "overview/core-components",
+              "overview/development-roadmap"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Getting Started",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "getting-started/index",
+              "getting-started/prerequisites",
+              "getting-started/local-setup",
+              "getting-started/production-deployment",
+              "getting-started/deployed-canisters"
+            ]
+          },
+          {
+            "group": "Architecture",
+            "pages": [
+              "architecture/index",
+              "architecture/high-level-diagram",
+              "architecture/components",
+              "architecture/data-model",
+              "architecture/interaction-logic"
+            ]
+          },
+          {
+            "group": "Product Design",
+            "pages": [
+              "product-design/index",
+              "product-design/user-journey",
+              "product-design/personas",
+              "product-design/prototype"
+            ]
+          },
+          {
+            "group": "Codebase",
+            "pages": [
+              "codebase/index",
+              "codebase/repo-structure",
+              "codebase/deployment-scripts",
+              "codebase/testing-qa",
+              "codebase/contributing"
             ]
           }
         ]
@@ -58,24 +88,38 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Appendix",
+        "groups": [
+          {
+            "group": "Appendix",
+            "pages": [
+              "appendix/index",
+              "appendix/glossary",
+              "appendix/faq",
+              "appendix/resources"
+            ]
+          }
+        ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "App",
           "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "icon": "rocket"
         },
         {
-          "anchor": "Community",
+          "anchor": "GitHub",
           "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "icon": "ghithub"
         },
         {
-          "anchor": "Blog",
+          "anchor": "Support",
           "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "icon": "telegram"
         }
       ]
     }
