@@ -77,7 +77,6 @@
           {
             "group": "Orchestrator Canister",
             "pages": [
-              "api/orchestrator/index",
               "api/orchestrator/get_user",
               "api/orchestrator/get_users",
               "api/orchestrator/orbit_station",
@@ -96,7 +95,6 @@
           {
             "group": "User Canister",
             "pages": [
-              "api/user/index",
               "api/user/delete_file",
               "api/user/download_file",
               "api/user/get_alias_info",
