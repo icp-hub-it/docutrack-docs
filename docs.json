@@ -4,8 +4,8 @@
   "name": "Docutrack",
   "colors": {
     "primary": "#FE4F32",
-    "light": "#FE4F32",
-    "dark": "#FE4F32"
+    "light": "#07C983",
+    "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -16,71 +16,20 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
+              "index",
               "quickstart",
-              "authentication"
+              "development"
             ]
           },
           {
-            "group": "Project Overview",
+            "group": "Essentials",
             "pages": [
-              "overview/project-description",
-              "overview/objectives",
-              "overview/architecture",
-              "overview/roadmap"
-            ]
-          },
-          {
-            "group": "User Research & Design",
-            "pages": [
-              "design/personas",
-              "design/user-journeys",
-              "design/wireframes",
-              "design/prototype"
-            ]
-          },
-          {
-            "group": "Core Features",
-            "pages": [
-              "features/document-upload",
-              "features/document-sharing",
-              "features/user-registration",
-              "features/access-control"
-            ]
-          },
-          {
-            "group": "Technical Implementation",
-            "pages": [
-              "technical/canister-architecture",
-              "technical/data-structures",
-              "technical/deployment",
-              "technical/security"
-            ]
-          },
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/documents",
-              "api-reference/users",
-              "api-reference/sharing"
-            ]
-          },
-          {
-            "group": "SDK",
-            "pages": [
-              "sdk/javascript",
-              "sdk/python",
-              "sdk/examples"
-            ]
-          },
-          {
-            "group": "Deployment & Testing",
-            "pages": [
-              "deployment/local-setup",
-              "deployment/production",
-              "deployment/testing"
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
             ]
           }
         ]
