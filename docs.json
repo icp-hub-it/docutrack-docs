@@ -1,11 +1,9 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "styling": {
-    "icons": {
-      "library": "lucide"
-    }
-  }, 
+  "icons": {
+    "library": "lucide"
+  },
   "name": "Docutrack",
   "colors": {
     "primary": "#FE4F32",
