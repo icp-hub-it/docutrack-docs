@@ -83,12 +83,6 @@
         "tab": "API Documentation",
         "groups": [
           {
-            "group": "API Documentation",
-            "pages": [
-              "api-documentation/introduction"
-            ]
-          },
-          {
             "group": "Orchestrator Canister",
             "pages": [
               "api-documentation/orchestrator"
