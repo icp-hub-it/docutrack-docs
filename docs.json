@@ -107,17 +107,17 @@
       "anchors": [
         {
           "anchor": "App",
-          "href": "https://mintlify.com/docs",
+          "href": "https://l7rii-2yaaa-aaaao-a4liq-cai.icp0.io/",
           "icon": "rocket"
         },
         {
           "anchor": "GitHub",
-          "href": "https://mintlify.com/community",
+          "href": "https://github.com/icp-hub-it/ic-docutrack/tree/main",
           "icon": "github"
         },
         {
           "anchor": "Support",
-          "href": "https://mintlify.com/blog",
+          "href": "mailto:mirko@icphubs.org",
           "icon": "send"
         }
       ]
@@ -142,9 +142,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/icphub_IT",
+      "github": "https://github.com/icp-hub-it/ic-docutrack/tree/main",
+      "linkedin": "https://www.linkedin.com/company/icp-hub-italia/"
     }
   }
 }
