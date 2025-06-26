@@ -8,6 +8,11 @@
     "dark": "#FE4F32"
   },
   "favicon": "/favicon.svg",
+  "styling": {
+    "icons": {
+      "library": "lucide"
+    }
+  },  
   "navigation": {
     "tabs": [
       {
@@ -114,12 +119,12 @@
         {
           "anchor": "GitHub",
           "href": "https://mintlify.com/community",
-          "icon": "ghithub"
+          "icon": "github"
         },
         {
           "anchor": "Support",
           "href": "https://mintlify.com/blog",
-          "icon": "telegram"
+          "icon": "send"
         }
       ]
     }
