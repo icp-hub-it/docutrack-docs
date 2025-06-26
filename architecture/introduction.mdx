@@ -5,8 +5,6 @@ description: 'How Docutrack is implemented'
 
 # How Docutrack is implemented?
 
-## Architecture
-
 ```mermaid
 block-beta
     columns 5
@@ -31,6 +29,7 @@ block-beta
     Frontend -- "Forward Requests" --> Orchestrator
     Frontend -- "Forward Requests" --> UserCanister
     UserCanister -- "Index shared files" --> Orchestrator
+
 ```
 
 The Docutrack architecture consists of the following components:

@@ -2,8 +2,6 @@
 title: 'Cryptography'
 description: 'Docutrack Cryptography'
 ---
-## Cryptography
-
 The creation of keys, encryption of documents and their decryption keys is done entirely on the client side.
 
 The dapp uses different kinds of keys [(link to source code)](https://github.com/icp-hub-it/ic-docutrack/blob/main/frontend/src/frontend/src/lib/crypto.js):
@@ -15,16 +13,16 @@ The dapp uses different kinds of keys [(link to source code)](https://github.com
 
 For each user and for each document separate keys are being used.
 
-![cryptography keys](./images/crypto-keys.png)
+![cryptography keys](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys.png)
 
 In order for Alice to share Document 2 with Bob (who needs to have an II to support this functionality), the secret key of Document 2 needs to be encrypted for Bob’s public key.
 
-![cryptography keys sharing](./images/crypto-keys-sharing.png)
+![cryptography keys sharing](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing.png)
 
 This key is then added to the **User Canister**.
 
-![cryptography keys sharing in user canister](./images/crypto-keys-sharing-in-user-canister.png)
+![cryptography keys sharing in user canister](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing-in-user-canister.png)
 
 Bob’s frontend can now download the document together with the document key encrypted for Bob and decrypt it locally.
 
-![cryptography keys sharing in user canister](./images/crypto-keys-sharing-in-user-canister2.png)
+![cryptography keys sharing in user canister](https://github.com/icp-hub-it/ic-docutrack/raw/main/docs/images/crypto-keys-sharing-in-user-canister2.png)
