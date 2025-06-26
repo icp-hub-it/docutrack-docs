@@ -1,0 +1,22 @@
+---
+sidebar_position: 7
+title: revoke_share_file_for_users
+---
+# revoke_share_file_for_users
+
+Revokes access to a shared file for multiple users. Can only be called by the user canister.
+
+**Arguments:**
+
+- `user_ids: vec principal` — List of user IDs to revoke.
+- `file_id: nat64` — The ID of the file to revoke.
+
+**Returns:**
+
+- `RevokeShareFileResponse` — Indicates the result of the revocation.
+
+### Candid Definition
+
+```candid
+revoke_share_file_for_users : (vec principal, nat64) -> (RevokeShareFileResponse);
+```

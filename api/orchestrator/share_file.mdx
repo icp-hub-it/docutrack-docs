@@ -1,0 +1,23 @@
+---
+sidebar_position: 9
+title: share_file
+---
+# share_file
+
+Shares a file with a specific user. Can only be called by the user canister.
+
+**Arguments:**
+
+- `user_id: principal` — The user ID to share with.
+- `file_id: nat64` — The ID of the file to share.
+- `metadata: ShareFileMetadata` — Metadata about the file (name, description).
+
+**Returns:**
+
+- `ShareFileResponse` — Indicates the result of the share.
+
+### Candid Definition
+
+```candid
+share_file : (principal, nat64, ShareFileMetadata) -> (ShareFileResponse);
+```

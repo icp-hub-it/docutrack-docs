@@ -1,0 +1,18 @@
+---
+sidebar_position: 9
+title: revoke_share
+---
+# revoke_share
+
+Revokes access to a shared file for a specific user.
+
+**Arguments:**
+
+- `user_id: principal` — The user ID to revoke.
+- `file_id: nat64` — The ID of the file to revoke.
+
+### Candid Definition
+
+```candid
+revoke_share : (principal, nat64) -> ();
+```

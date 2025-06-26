@@ -1,0 +1,22 @@
+---
+sidebar_position: 3
+title: download_file
+---
+# download_file
+
+Downloads a file from the user's storage canister.
+
+**Arguments:**
+
+- `file_id: nat64` — The ID of the file to download.
+- `chunk: nat64` — The chunk number.
+
+**Returns:**
+
+- `FileDownloadResponse` — File data and metadata.
+
+### Candid Definition
+
+```candid
+download_file : (nat64, nat64) -> (FileDownloadResponse) query;
+```
