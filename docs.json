@@ -1,18 +1,18 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
+  "styling": {
+    "icons": {
+      "library": "lucide"
+    }
+  }, 
   "name": "Docutrack",
   "colors": {
     "primary": "#FE4F32",
     "light": "#FE4F32",
     "dark": "#FE4F32"
   },
-  "favicon": "/favicon.svg",
-  "styling": {
-    "icons": {
-      "library": "lucide"
-    }
-  },  
+  "favicon": "/favicon.svg", 
   "navigation": {
     "tabs": [
       {
