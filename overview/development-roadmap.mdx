@@ -1,0 +1,94 @@
+---
+title: 'Development Roadmap'
+description: 'How Docutrack is implemented'
+icon: 'chart-no-axes-gantt'
+---
+import { TableOfContents, Callout } from '@mintlify/components';
+
+A phased plan ensures early wins, continuous delivery, and stakeholder alignment.
+
+<TableOfContents />
+
+<Callout emoji="🚀">
+Phase 1: Completed ✅
+</Callout>
+
+## Phase 1 (01/05 – 15/06)
+
+### Architecture Redesign (1/2)
+✅ Transition to one-canister-per-user model  
+✅ Orchestrator canister: Orbit API & user canister bootstrapping
+
+### Architecture Implementation
+✅ Orchestrator canisters development.
+✅ Orbit setup.
+✅ User canister rework.
+✅ Orchestrator and user backend canisters tests & first version deployment.
+
+### Core Implementation
+✅ Develop and test orchestrator/user canisters  
+✅ Deploy first version to mainnet
+
+### UX Enhancements
+✅ **Delete Function**: Permanent removal by owner only  .
+✅ **User Journey Mapping**: Shape UX flows for registration & sharing.
+
+### Prototype UI (Part 1)
+✅ Design a modern interface that consolidates both existing and newly proposed features.
+
+---
+
+## Phase 2 (16/06 – 31/10)
+
+- **Architecture Redesign (2/2)**: Redesign the architecture to embrace the one-canister-per-user model, making sure it is suitable for the integration of the vetKD feature.
+
+- **Latest Internet Identity Integration**: Upgrade Internet Identity libraries to the most recent versions and ensure the user flows are updated accordingly.
+
+- **Full VetKD Integration**: Update the VetKD encryption module to the production released API.
+
+- **Integrity Function (Log)**: Changes are tracked and visible to all users with access to the space.
+
+- **User Canister updates**: Implement admin endpoints to batch upgrade user canisters with orbits by providing the WASM buffer.
+
+- **Frontend Development**: Migration from Svelte to React in order to ensure better scalability, maintainability, and alignment with the latest development standards.
+Implementation of the UI.
+
+- **Core UX Enhancements**
+Implement improvements for file uploading, deletion, and sharing.
+
+- **Role-Based Access Control**: Defines different user roles and manages what each role can see or do.
+Ensures that only authorized users can perform specific actions based on their role.
+
+- **Workspaces**: Workspaces are secure, isolated environments within DocuTrack where users can manage, organize, and share documents with specific teams or collaborators.
+
+- **Tests & Alpha Release**
+
+---
+
+## Phase 3 (01/11 – 31/12)
+
+- **Core Module Design & Implementation**: Implementation of the first version of the DocuTrack core module.
+
+- **Selective Feature Integration**: Implementing the most critical requested modifications and features, such as storage capacity (up to 500MB/file) and latency improvements for file upload and download.
+
+- **Sharing Confidentiality**: Documents remain confidential even when two users use the same browser instance.
+
+- **Organizations**: Organizations are private and independent environments, designed for companies that need full control over their document management and internal users.
+Each Organization operates within its own encrypted space but remains fully interoperable: companies can securely share files both with the public DocuTrack environment and with other Organizations when needed.
+
+- **Security Review**
+
+- **Tests, Audit & Beta Release**
+---
+
+## Phase 4 & Beyond (2026+)
+
+- **Tiered Usage & Monetization**: Premium features, fair usage models.
+- **Document Signature & PDF Compiler**: On-chain signing and form filling.  
+- **SSO & wApp Marketplace**: Enterprise SSO integration and marketplace readiness.  
+- **Desktop Sync & Web2 Integration**: Hybrid workflows with existing platforms.  
+- **KYC/AML Support**: Compliance modules for regulated industries.
+
+<Callout emoji="⚡">
+By iterating with user feedback and strategic partnerships, DocuTrack will mature into a **production-ready**, **enterprise-grade** solution that showcases the Internet Computer’s unique capabilities.
+</Callout>

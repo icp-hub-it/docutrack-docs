@@ -20,9 +20,8 @@
             "group": "Overview",
             "pages": [
               "overview/background",
-              "overview/product-description",
+              "overview/vision",
               "overview/project-goals",
-              "overview/core-components",
               "overview/development-roadmap"
             ]
           },
