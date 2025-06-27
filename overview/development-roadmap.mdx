@@ -3,92 +3,135 @@ title: 'Development Roadmap'
 description: 'How Docutrack is implemented'
 icon: 'chart-no-axes-gantt'
 ---
-import { TableOfContents, Callout } from '@mintlify/components';
+
+import { Callout } from '@mintlify/components'
 
 A phased plan ensures early wins, continuous delivery, and stakeholder alignment.
 
-<TableOfContents />
-
-<Callout emoji="🚀">
-Phase 1: Completed ✅
+<Callout type="success" emoji="🚀">
+  **Phase 1: Completed ✅**
 </Callout>
 
-## Phase 1 (01/05 – 15/06)
+## Phase 1 (01/05 – 15/06)
 
 ### Architecture Redesign (1/2)
-✅ Transition to one-canister-per-user model  
-✅ Orchestrator canister: Orbit API & user canister bootstrapping
+
+<Callout type="check">
+  ✅ Transition to one-canister-per-user model  
+  ✅ Orchestrator canister: Orbit API & user canister bootstrapping
+</Callout>
 
 ### Architecture Implementation
-✅ Orchestrator canisters development.
-✅ Orbit setup.
-✅ User canister rework.
-✅ Orchestrator and user backend canisters tests & first version deployment.
+
+- **Orchestrator canisters development** ✅
+- **Orbit setup** ✅
+- **User canister rework** ✅
+- **Orchestrator and user backend canisters tests & first version deployment** ✅
 
 ### Core Implementation
-✅ Develop and test orchestrator/user canisters  
-✅ Deploy first version to mainnet
+
+- **Develop and test orchestrator/user canisters** ✅
+- **Deploy first version to mainnet** ✅
 
 ### UX Enhancements
-✅ **Delete Function**: Permanent removal by owner only  .
-✅ **User Journey Mapping**: Shape UX flows for registration & sharing.
 
-### Prototype UI (Part 1)
-✅ Design a modern interface that consolidates both existing and newly proposed features.
+- **Delete Function**: Permanent removal by owner only ✅
+- **User Journey Mapping**: Shape UX flows for registration & sharing ✅
+
+### Prototype UI (Part 1)
+
+- **Design a modern interface** that consolidates both existing and newly proposed features ✅
 
 ---
 
-## Phase 2 (16/06 – 31/10)
+## Phase 2 (16/06 – 31/10)
 
-- **Architecture Redesign (2/2)**: Redesign the architecture to embrace the one-canister-per-user model, making sure it is suitable for the integration of the vetKD feature.
+<Callout type="info" emoji="🔧">
+  **Current Development Phase**
+</Callout>
 
-- **Latest Internet Identity Integration**: Upgrade Internet Identity libraries to the most recent versions and ensure the user flows are updated accordingly.
+### Architecture & Infrastructure
 
-- **Full VetKD Integration**: Update the VetKD encryption module to the production released API.
+- **Architecture Redesign (2/2)**: Redesign the architecture to embrace the one-canister-per-user model, making sure it is suitable for the integration of the vetKD feature
+- **Latest Internet Identity Integration**: Upgrade Internet Identity libraries to the most recent versions and ensure the user flows are updated accordingly
+- **Full VetKD Integration**: Update the VetKD encryption module to the production released API
+- **User Canister Updates**: Implement admin endpoints to batch upgrade user canisters with orbits by providing the WASM buffer
 
-- **Integrity Function (Log)**: Changes are tracked and visible to all users with access to the space.
+### Core Features
 
-- **User Canister updates**: Implement admin endpoints to batch upgrade user canisters with orbits by providing the WASM buffer.
+- **Integrity Function (Log)**: Changes are tracked and visible to all users with access to the space
+- **Role-Based Access Control**: 
+  - Defines different user roles and manages what each role can see or do
+  - Ensures that only authorized users can perform specific actions based on their role
+- **Workspaces**: Secure, isolated environments within DocuTrack where users can manage, organize, and share documents with specific teams or collaborators
 
-- **Frontend Development**: Migration from Svelte to React in order to ensure better scalability, maintainability, and alignment with the latest development standards.
-Implementation of the UI.
+### Frontend Development
 
-- **Core UX Enhancements**
-Implement improvements for file uploading, deletion, and sharing.
+- **Migration from Svelte to React**: Ensures better scalability, maintainability, and alignment with the latest development standards
+- **UI Implementation**: Complete implementation of the user interface
+- **Core UX Enhancements**: Implement improvements for file uploading, deletion, and sharing
 
-- **Role-Based Access Control**: Defines different user roles and manages what each role can see or do.
-Ensures that only authorized users can perform specific actions based on their role.
-
-- **Workspaces**: Workspaces are secure, isolated environments within DocuTrack where users can manage, organize, and share documents with specific teams or collaborators.
+### Milestone
 
 - **Tests & Alpha Release**
 
 ---
 
-## Phase 3 (01/11 – 31/12)
+## Phase 3 (01/11 – 31/12)
 
-- **Core Module Design & Implementation**: Implementation of the first version of the DocuTrack core module.
+<Callout type="warning" emoji="🏗️">
+  **Upcoming Phase - Advanced Features**
+</Callout>
 
-- **Selective Feature Integration**: Implementing the most critical requested modifications and features, such as storage capacity (up to 500MB/file) and latency improvements for file upload and download.
+### Core Development
 
-- **Sharing Confidentiality**: Documents remain confidential even when two users use the same browser instance.
+- **Core Module Design & Implementation**: Implementation of the first version of the DocuTrack core module
+- **Selective Feature Integration**: Implementing the most critical requested modifications and features:
+  - Storage capacity (up to 500MB/file)
+  - Latency improvements for file upload and download
 
-- **Organizations**: Organizations are private and independent environments, designed for companies that need full control over their document management and internal users.
-Each Organization operates within its own encrypted space but remains fully interoperable: companies can securely share files both with the public DocuTrack environment and with other Organizations when needed.
+### Security & Privacy
 
-- **Security Review**
+- **Sharing Confidentiality**: Documents remain confidential even when two users use the same browser instance
+- **Security Review**: Comprehensive security assessment
+
+### Enterprise Features
+
+- **Organizations**: Private and independent environments, designed for companies that need full control over their document management and internal users
+  - Each Organization operates within its own encrypted space
+  - Remains fully interoperable: companies can securely share files both with the public DocuTrack environment and with other Organizations when needed
+
+### Milestone
 
 - **Tests, Audit & Beta Release**
+
 ---
 
-## Phase 4 & Beyond (2026+)
+## Phase 4 & Beyond (2026+)
 
-- **Tiered Usage & Monetization**: Premium features, fair usage models.
-- **Document Signature & PDF Compiler**: On-chain signing and form filling.  
-- **SSO & wApp Marketplace**: Enterprise SSO integration and marketplace readiness.  
-- **Desktop Sync & Web2 Integration**: Hybrid workflows with existing platforms.  
-- **KYC/AML Support**: Compliance modules for regulated industries.
+<Callout type="note" emoji="🚀">
+  **Future Vision - Enterprise Grade**
+</Callout>
 
-<Callout emoji="⚡">
-By iterating with user feedback and strategic partnerships, DocuTrack will mature into a **production-ready**, **enterprise-grade** solution that showcases the Internet Computer’s unique capabilities.
+### Monetization & Premium Features
+
+- **Tiered Usage & Monetization**: Premium features, fair usage models
+
+### Advanced Document Features
+
+- **Document Signature & PDF Compiler**: On-chain signing and form filling
+
+### Enterprise Integration
+
+- **SSO & wApp Marketplace**: Enterprise SSO integration and marketplace readiness
+- **Desktop Sync & Web2 Integration**: Hybrid workflows with existing platforms
+
+### Compliance
+
+- **KYC/AML Support**: Compliance modules for regulated industries
+
+---
+
+<Callout type="success" emoji="⚡">
+  By iterating with user feedback and strategic partnerships, DocuTrack will mature into a **production-ready**, **enterprise-grade** solution that showcases the Internet Computer's unique capabilities.
 </Callout>
