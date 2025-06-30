@@ -54,10 +54,16 @@
         "tab": "Design",
         "groups": [
           {
+            "group": "Personas",
+            "pages": [
+              "design/personas-introduction",
+              "design/personas-sheets"
+            ]
+          },
+          {
             "group": "UX/UI",
             "pages": [
-              "design/introduction",
-              "design/personas",
+              "design/design-introduction",
               "design/user-journey",
               "design/prototype"
             ]
