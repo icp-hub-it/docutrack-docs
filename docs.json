@@ -10,7 +10,7 @@
     "light": "#FE4F32",
     "dark": "#FE4F32"
   },
-  "favicon": "/favicon.svg", 
+  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -22,7 +22,19 @@
               "overview/background",
               "overview/vision",
               "overview/project-goals",
-              "overview/development-roadmap"
+              "overview/development-roadmap",
+              {
+                "group": "Deliverables",
+                "pages": [
+                  "overview/development-roadmap/phase-1",
+                  "overview/development-roadmap/phase-2",
+                  "overview/development-roadmap/phase-3",
+                  "overview/development-roadmap/phase-4",
+                  "overview/development-roadmap/phase-5",
+                  "overview/development-roadmap/phase-6"
+                ],
+                "icon": "code"
+              }
             ]
           },
           {
@@ -55,10 +67,7 @@
         "groups": [
           {
             "group": "Personas",
-            "pages": [
-              "design/personas-introduction",
-              "design/personas-sheets"
-            ]
+            "pages": ["design/personas-introduction", "design/personas-sheets"]
           },
           {
             "group": "UX/UI",
@@ -88,10 +97,18 @@
         "tab": "API Documentation",
         "groups": [
           {
-            "group": "Canisters",
+            "group": "Canisters Now",
             "pages": [
               "api-documentation/orchestrator",
               "api-documentation/user"
+            ]
+          },
+          {
+            "group": "Canisters Future Description",
+            "pages": [
+              "api-documentation/orchestrator-future",
+              "api-documentation/user-future",
+              "api-documentation/organization-canister"
             ]
           }
         ]

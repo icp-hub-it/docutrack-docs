@@ -1,0 +1,307 @@
+---
+title: "User Canister Future"
+description: "Orchestrator Canister API"
+icon: "user-round-cog"
+---
+
+```did
+service : (UserCanisterInstallArgs) -> {
+  delete_file : (nat64) -> (DeleteFileResponse);
+  download_file : (nat64, opt nat64, nat64) -> (FileDownloadResponse) query;
+  get_alias_info : (text) -> (Result) query;
+  get_owned_files : () -> (vec PublicFileMetadata) query;
+  get_shared_files : (principal) -> (vec PublicFileMetadata) query;
+  public_key : () -> (blob) query;
+  request_file : (text) -> (RequestFileResponse);
+  revoke_share : (principal, nat64) -> ();
+  set_public_key : (blob) -> ();
+  share_file : (principal, nat64, blob, AccessLevel) -> (FileSharingResponse);
+  share_file_with_users : (vec principal, nat64, vec blob, AccessLevel) -> ();
+  upload_file : (UploadFileRequest) -> (Result_1);
+  upload_file_atomic : (UploadFileAtomicRequest) -> (UploadFileAtomicResponse);
+  upload_file_continue : (UploadFileContinueRequest) -> (
+      UploadFileContinueResponse,
+    );
+  update_file : (nat64, UploadFileRequest) -> (UpdateFileResponse);
+  refresh_keys : (nat64) -> (RefreshKeysResponse);
+  get_file_history : (nat64) -> (FileHistoryResponse) query;
+  create_folder : (FolderConfig) -> (CreateFolderResponse);
+  update_folder : (text, FolderConfig) -> (UpdateFolderResponse);
+  get_folder_files : (text) -> (FolderFilesResponse) query;
+  map_file_path : (text, nat64) -> (MapFilePathResponse);
+  set_user_config : (UserConfig) -> (SetUserConfigResponse);
+}
+```
+
+### delete_file
+
+Deletes a file from the user's storage canister. Revokes shares to avoid dangling references.
+
+Arguments:
+
+`file_id`: The ID of the file to delete.
+
+Returns:
+
+`DeleteFileResponse`: A response object indicating the result of the delete operation.
+
+### download_file
+
+Downloads a file from the user's storage canister, with optional version specification. Enforces role-based access: Editors can download any version; Viewers/E-Signers are restricted to the latest version.
+If the file being downloaded is not flagged as latest only editors owners should be eligible to download.
+
+Arguments:
+
+`file_id`: The ID of the file to download.
+
+`chunk`: The chunk number to download.
+
+`opt version_id`: Optional version ID (null for latest).
+
+Returns:
+
+`FileDownloadResponse`: A response object containing the file data and metadata.
+
+### get_alias_info
+
+Returns information about a file alias that is being uploaded.
+
+Arguments:
+
+`alias`: The alias of the file to retrieve information for.
+
+Returns:
+
+`Result`: A response object containing the result of the alias lookup, including the file ID and metadata if found.
+
+### get_owned_files ( formerly: `get_requests`)
+
+Returns a list of files owned by the user.
+
+Returns:
+
+`vec PublicFileMetadata`: A vector of PublicFileMetadata objects containing information about the files.
+
+### get_shared_files
+
+Returns a list of files shared with a specific user.
+Called by user canister owner
+
+Arguments:
+
+`user_id`: The user principal of the user to retrieve shared files for.
+
+Returns:
+
+`vec PublicFileMetadata`: A vector of PublicFileMetadata objects containing information about the shared files.
+
+### public_key
+
+Returns the public key of the user.
+
+Returns:
+
+`blob`: The public key of the user in binary format.
+
+### request_file
+
+Creates a new file request for the user for uploading a file.
+
+Arguments:
+
+`path`: The path where the file will be uploaded.
+
+`opt description`: Optional file note.
+
+Returns:
+
+`RequestFileResponse`: A response object containing the operation result. In case of success, it contains the file alias (UUIDv7) that can be used to upload the file.
+
+### revoke_share
+
+Revokes access to a shared file for a specific user.
+
+Arguments:
+
+`user_id`: The user Principal of the user to revoke access from.
+
+`file_id`: The ID of the file to revoke access to.
+
+### set_public_key
+
+Updates the public key of the user.
+
+Arguments:
+
+`blob`: The new public key of the user in binary format.
+
+### share_file
+
+Shares a file with a specific user, including access level.
+
+Arguments:
+
+`user_id`: The user Principal of the user to share the file with.
+
+`file_id`: The ID of the file to share.
+
+`blob`: file key encrypted with the user's public key.
+
+`AccessLevel`: The access level for the share (Viewer, Editor, E-Signer).
+
+Returns:
+
+`FileSharingResponse`: A response object indicating the result of the share operation.
+
+### share_file_with_users
+
+Shares a file with multiple users, including access level.
+
+Arguments:
+
+`user_ids`: A vector of user IDs to share the file with.
+
+`file_id`: The ID of the file to share.
+
+`vec blob`: A vector of file keys encrypted with the users' public keys.
+
+`vec AccessLevel`:A Vector of the access level for the share (Viewer, Editor, E-Signer).
+
+### upload_file
+
+Uploads the first chunk of a file to the user's storage canister.
+
+Arguments:
+
+`UploadFileRequest`: An object containing the file data and metadata to upload.
+
+Returns:
+
+A response object indicating the result of the upload operation.
+
+### upload_file_atomic
+
+Uploads a file atomically to the user's storage canister. This method is only called by the owner of the _user canister_.
+
+Arguments:
+
+`UploadFileAtomicRequest`: An object containing the file data and metadata to upload. (includes `opt description`)
+
+Returns:
+
+`UploadFileAtomicResponse`: A response object indicating the result of the atomic upload operation.
+
+### upload_file_continue
+
+Upload any chunk after the first one of a file that was started with `upload_file`, `upload_file_atomic` or `update_file`.
+
+All chunks after the first one must be uploaded with this method.
+
+Arguments:
+
+`UploadFileContinueRequest`: An object containing the file data and metadata to continue the upload.
+
+Returns:
+
+`UploadFileContinueResponse`: A response object indicating the result of the continued upload operation.
+
+### update_file
+
+Updates an existing file, uploading a new version. Available to Editors and Owners.
+
+Arguments:
+
+`file_id`: The ID of the file to update.
+
+`UploadFileRequest`: The updated file data and metadata.
+
+Returns:
+
+`UpdateFileResponse`: A response object indicating the result of the update operation.
+
+### refresh_keys
+
+Refreshes the encryption key for a file, re-encrypting the file and generating new keys for authorized users.
+
+Arguments:
+
+`file_id`: The ID of the file to refresh keys for.
+
+Returns:
+
+`RefreshKeysResponse`: A response object indicating the result of the key refresh operation.
+
+### get_file_history
+
+Retrieves the history of a file, including versions, timestamps, and actions. Can be called by any user present in the shared list.
+
+Arguments:
+
+`file_id`: The ID of the file to get history for.
+
+Returns:
+
+`FileHistoryResponse`: A response object containing the file's version history.
+
+### create_folder
+
+Creates a new folder with configuration, including type (Shared/Private) and sharing details.
+Maps a path string (ending with `/`) with a specific visibility configuration.
+
+Arguments:
+
+`FolderConfig`: The folder configuration, including path, type, shared users, and access level.
+Returns:
+
+`CreateFolderResponse`: A response object indicating the result of the folder creation.
+
+### update_folder
+
+Updates an existing folder's configuration.
+
+Arguments:
+
+`path`: The path of the folder to update.
+
+`FolderConfig`: The updated folder configuration.
+
+Returns:
+
+`UpdateFolderResponse`: A response object indicating the result of the folder update.
+
+### get_folder_files
+
+Retrieves the files within a specific folder.
+
+Arguments:
+
+`path`: The path of the folder.
+
+Returns:
+
+`FolderFilesResponse`: A response object containing the list of files in the folder.
+
+### map_file_path
+
+Maps a file to a specific path in the S3-like filesystem. Verifies Folder configurations and overwrites single file visibility. (folder path configuration has precedence over single file one. Executes sharing and revoke sharing)
+
+Arguments:
+
+`path`: The path to map the file to.
+
+`file_id`: The ID of the file to map.
+
+Returns:
+
+`MapFilePathResponse`: A response object indicating the result of the mapping operation.
+
+### set_user_config
+
+Sets the user's configuration, including optional full name, optional photo, optional email (with verification if new or changed), handle (with verification if changed), visibility settings, and whitelist/blacklist for sharing eligibility. If an email is provided and not previously verified, triggers a verification challenge. If email was verified during the creation process, it is linked upon user canister creation.
+
+Arguments:
+
+`UserConfig`: The configuration details, such as optional full name, photo, email, visibility (Public/Private), and lists of allowed/blocked handles, emails, or domains.
+Returns:
+
+`SetUserConfigResponse`: A response object indicating the result of the configuration update.

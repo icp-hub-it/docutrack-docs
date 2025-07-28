@@ -1,0 +1,15 @@
+---
+title: "Phase 4"
+description: "To be delivered "
+icon: "chart-no-axes-gantt"
+---
+
+**Focus**: Implement core RBAC with roles (owner, viewer, editor, esigner), migrate file structures for versioning support (with log wireframing), and roll out initial e-signing features compliant with EU eIDAS regs (e.g., AES-level security via VetKD for identity/linkage/integrity).
+
+### Deliverable List:
+
+- Detailed document mapping role-based access control (RBAC) user journeys for roles like owner (full control), viewer (read-only), editor (modify docs), and esigner (signing privileges), including permissions enforcement across canisters and workspaces (as enhanced file structures from Phase 1).
+
+- Repository updates with RBAC implementation in canisters, including endpoints for role assignment/management, file structure migration to support versioning (e.g., historical snapshots tied to workspaces/folders), and initial e-signing flows (compliant with eIDAS: signer verification, data integrity checks, non-repudiation via VetKD keys).
+- Technical document on e-signing compliance, detailing alignment with EU eIDAS Regulation (e.g., advanced signature requirements for unique signer control, alteration detection, and audit trails without qualified certs initially).
+- React frontend repo progress, implementing RBAC UI components (e.g., role selectors, versioning views), wireframe for integrity logs (change tracking visuals), and basic e-signing interface, with deployed demo link for client testing of role-restricted actions like document versioning and signing.

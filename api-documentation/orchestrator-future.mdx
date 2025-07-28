@@ -1,0 +1,284 @@
+---
+title: "Orchestrator Canister Future"
+description: "Orchestrator Canister API next release description"
+icon: "brain"
+---
+
+```did
+service : (OrchestratorInstallArgs) -> {
+  get_user : (principal) -> (opt PublicUser) query;
+  get_users : (Pagination, opt text) -> (GetUsersResponse) query;
+  orbit_station : () -> (principal) query;
+  retry_user_canister_creation : () -> (RetryUserCanisterCreationResponse);
+  revoke_share_file : (principal, nat64) -> (RevokeShareFileResponse);
+  revoke_share_file_for_users : (vec principal, nat64) -> (
+      RevokeShareFileResponse,
+    );
+  set_user : () -> (SetUserResponse);
+  verify_email : (text) -> (VerifyEmailResponse);
+  verify_handle : (text) -> (VerifyHandleResponse);
+  check_email_token : (text) -> (CheckEmailTokenResponse);
+  check_share_eligibility : (RecipientIdentifier, nat64) -> (ShareEligibilityResponse) query;
+  share_file : (RecipientIdentifier, nat64, ShareFileMetadata) -> (ShareFileResponse);
+  share_file_with_users : (vec RecipientIdentifier, nat64, ShareFileMetadata) -> (
+      ShareFileResponse,
+    );
+  shared_files : () -> (SharedFilesResponse) query;
+  user_canister : () -> (UserCanisterResponse) query;
+  username_exists : (text) -> (bool) query;
+  email_exists : (text) -> (bool) query;
+  who_am_i : () -> (WhoamiResponse) query;
+  create_organization_canister : () -> (CreateOrganizationCanisterResponse);
+  get_spawned_canisters_count : () -> (nat) query;
+  get_total_internal_bytes : () -> (nat64) query;
+  get_cycles_benchmarks : () -> (CyclesBenchmarkResponse) query;
+}
+```
+
+### get_user
+
+Returns the public information of a user by their user ID. (called by the user canister)
+
+Arguments:
+
+`user_id`: The user (principal) of the user to retrieve.
+
+Returns:
+
+opt `PublicUser`: An optional PublicUser object containing the user's public information, or null if the user does not exist or not reachable.
+
+### get_users
+
+Returns a paginated list of users. (Used by the frontend for sharing purposes).
+Only retreiving public users profiles through pattern matching handle and email addresses. unless caller profile is complete to verify elgibility (whitelist/blacklist. domains) and so also private profiles are shown.
+
+Arguments:
+
+`Pagination`: The pagination parameters to use for the query.
+
+`opt text`: An optional search term to filter users by username or email.
+
+Returns:
+
+`GetUsersResponse`: A response object containing a list of users and pagination information.
+
+### orbit_station
+
+Returns the principal of the Orbit Station canister.
+
+Returns:
+
+`principal`: The principal of the Orbit Station canister.
+
+### retry_user_canister_creation
+
+Retries the creation of a user canister for the current user. (called upon user canister ccreation failure)
+
+Returns:
+
+`RetryUserCanisterCreationResponse`: A response object indicating the result of the retry operation.
+
+### revoke_share_file
+
+Revoke access to a shared file for a specific user.
+
+Can only be called by the user canister.
+
+Arguments:
+
+`user_id`: The user principal of the user to revoke access from.
+`file_id`: The ID of the file to revoke access to.
+
+Returns:
+
+`RevokeShareFileResponse`: A response object indicating the result of the revocation operation.
+
+### revoke_share_file_for_users
+
+Revoke access to a shared file for multiple users.
+
+Can only be called by the user canister.
+
+Arguments:
+
+`user_ids`: A vector of user Principals to revoke access from.
+`file_id`: The ID of the file to revoke access to.
+Returns:
+
+`RevokeShareFileResponse`: A response object indicating the result of the revocation operation.
+
+### set_user
+
+Sign up with user principal after II authentication. This call causes the orchestrator to start the worker which will result in the creation of the user canister for the user. Fails if principal is registered and user canister is already created.
+
+Arguments:
+
+No arguments, uses `caller`.
+
+Returns:
+
+`SetUserResponse`: A response object indicating the result of the user creation operation.
+
+### verify_email
+
+Initiates email verification by sending a challenge code to the provided email.
+Called by an authentcated user.
+
+Arguments:
+
+`email`: The email address to verify.
+
+Returns:
+
+`VerifyEmailResponse`: A response object indicating the result of the verification initiation.
+
+### verify_handle
+
+Maps username/handle to the user principal. Sets public user info.
+Called by an authentcated user.
+
+Enables handle update and check uniqueness.
+
+Arguments:
+
+`handle`: The username to set.
+
+Returns:
+
+`VerifyHandleResponse`: A response object indicating the result of the setting initiation.
+
+### check_email_token
+
+Checks the provided email verification token against the challenge. Called by an authenticated user.
+
+Arguments:
+
+`token`: The verification code entered by the user.
+
+Returns:
+
+`CheckEmailTokenResponse`: A response object indicating if the token is valid and the verification result.
+
+### check_share_eligibility
+
+Evaluates if a recipient is eligible for sharing based on the sender's and recipient's configurations (e.g., visibility, whitelist/blacklist). Called by auth user (with full profile set).
+
+Arguments:
+
+`recipient`: The recipient identifier ( opt handle, opt email).
+`file_id`: The ID of the file being shared.
+Returns:
+
+`ShareEligibilityResponse`: A response object with eligibility status and optional reason.
+
+### share_file
+
+Share a file with a specific recipient (supports principal and email for unregistered users).
+
+Can only be called by the user canister inter-canister calls.
+
+Arguments:
+
+`recipient`: The recipient identifier (principal or email).
+`file_id`: The ID of the file to share.
+`ShareFileMetadata`: Metadata about the file, including name, optional description, and access level (Viewer, Editor, E-Signer).
+
+Returns:
+
+`ShareFileResponse`: A response object indicating the result of the share operation.
+
+### share_file_with_users
+
+Share a file with multiple recipients (supports principals or emails).
+
+Can only be called by the user canister.
+
+Arguments:
+
+`recipients`: A vector of recipient identifiers.
+`file_id`: The ID of the file to share.
+`ShareFileMetadata`: Metadata about the file, including name, optional description, and access level (Viewer, Editor, E-Signer).
+Returns:
+
+`ShareFileResponse`: A response object indicating the result of the share operation.
+
+### shared_files
+
+Returns a list of files shared with the current user, including owner and access level details. (called by the auth user)
+
+Returns:
+
+`SharedFilesResponse`: A response object containing a list of shared files with enhanced metadata.
+
+### user_canister
+
+Returns the principal of the user canister or its creation state if not created yet/pending/failed for the current user.
+
+Returns:
+
+`UserCanisterResponse`: A response object containing the principal of the user canister or its creation state.
+
+### username_exists
+
+Returns whether a username already exists.
+
+Arguments:
+
+`username`: The username to check for existence.
+Returns:
+
+`bool`: true if the username exists, false otherwise.
+
+### email_exists
+
+Returns whether an email already exists.
+
+Arguments:
+
+`email`: The email to check for existence.
+
+Returns:
+
+`bool`: true if the email exists, false otherwise.
+
+### who_am_i
+
+Returns the public information of the current user.
+
+Returns:
+
+`WhoamiResponse`: A response object containing the public information of the current user, including their user ID and username.
+
+### create_organization_canister
+
+Creates an organization canister for paid subscription users, mirroring user canister functionality but for multiple users. More details will be disclosed in further iterations.
+
+Returns:
+
+`CreateOrganizationCanisterResponse`: A response object indicating the result of the organization canister creation.
+
+## QUERY Internal Stats (in development)
+
+### get_spawned_canisters_count
+
+Returns the total number of canisters spawned in the system (e.g., user and organization canisters).
+
+Returns:
+
+`GetSpawnedCanistersResponse`: A response object indicating the amount of total canisters spawned, total user, total organization.
+
+### get_total_internal_bytes
+
+Returns the total bytes uploaded internally across the docutrack network, grouped by subnet?
+
+Returns:
+
+`nat64`: The total internal bytes.
+
+### get_cycles_benchmarks
+
+Returns benchmarks for cycles usage, including consumption rates (example cycles per byte) and optimization metrics.
+
+Returns:
+
+`CyclesBenchmarkResponse`: A response object with cycles metrics, such as total burned, averages per operation, efficiency ratio.
